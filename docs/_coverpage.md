@@ -1,6 +1,6 @@
-![logo](_media/logo.png)
+![logo](_media/logo.png ':size=215x26')
 
-> An ever-growing documentation website about HTML5 and friends.
+> A growing documentation project about web development
 
 - Detailed introductions
 - Code samples

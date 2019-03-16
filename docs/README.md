@@ -1,6 +1,6 @@
 # HTML5Tech
 
-> An ever-growing documentation website about HTML5 and friends.
+> A growing documentation project about web development
 
 ## Example documentation site built with docsify
 
