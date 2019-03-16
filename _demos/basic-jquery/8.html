@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+  <p>
+    Write something in the input field below, and then click
+    outside the field.
+  </p>
+  <form>
+    Custom Header Text:
+    <input id='input' type='text'>
+  </form>
+  <h1 style='color:#007f7f;text-shadow:-2px 0 #333;' id='live-header'>
+    Default Text
+  </h1>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    // Event listener that will run any time the input changes
+    $('#input').change(function () {
+      // Get the curent value of the input element
+      var val = $('#input').val();
+      // Set the content of heading element
+      $('#live-header').text(val);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    .cyan::first-line {
+      color: cyan;
+    }
+
+    .red::first-line {
+      color: red;
+    }
+
+    .purple::first-line {
+      color: purple;
+    }
+
+    .green::first-line {
+      color: green;
+    }
+
+    .yellow::first-line {
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='Marios'>
+    Marios
+    <div id='Ioanna'>
+      ----Ioanna
+      <div id='Konstantina'>
+        --------Konstantina
+        <div id='Antreas'>
+          ------------Antreas
+          <div id='Neofitos'>
+            ----------------Neofitos
+            <div id='Georgia'>
+              --------------------Georgia
+              <div id='Lakis'>
+                ------------------------Lakis
+              </div>
+              <div id='Alekos'>
+                ------------------------Alekos
+              </div>
+            </div>
+            <div id='Sotiris'>
+              --------------------Sotiris
+              <div id='Athos'>
+                ------------------------Athos
+              </div>
+            </div>
+          </div>
+          <div id='Eleni'>
+            ----------------Eleni
+          </div>
+        </div>
+        <div id='Giannis'>
+          ------------Giannis
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    // Immediate ancestor
+    var ancestor = $('#Antreas').parent();
+    ancestor.addClass('cyan');
+
+    // Ancestors (Use 'div' to filter out the <body>)
+    var ancestors = $('#Konstantina').parents('div');
+    ancestors.addClass('red');
+
+    // Immediate descendants
+    var immediateDesc = $('#Antreas').children();
+    immediateDesc.addClass('purple');
+
+    // Descendants (Unlike the other methods the parameter for the
+    // find() method is mandatory)
+    var descendants = $('#Neofitos').find('*');
+    descendants.addClass('green');
+
+    // Siblings
+    var siblings = $('#Antreas').siblings();
+    siblings.addClass('yellow');
+  </script>
+</body>
+
+</html>

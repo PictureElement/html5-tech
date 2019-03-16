@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+  <h1 id='heading'>HELLO WORLD</h1>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    // Select heading
+    var heading = $('#heading');
+    // Apply a single style
+    heading.css('color', '#007f7f');
+    // Apply multiple styles
+    heading.css({
+      'text-decoration': 'overline',
+      'text-shadow': '-2px 0 #333'
+    });
+  </script>
+</body>
+
+</html>

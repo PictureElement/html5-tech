@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+  <ul>
+    <li><a>Microsoft</a></li>
+    <li><a href='https://www.apple.com/'>Apple</a></li>
+    <li><a href='https://www.amazon.com/'>Amazon</a></li>
+    <li><a href='https://abc.xyz/'>Alphabet</a></li>
+    <li><a href='https://www.ibm.com'>IBM</a></li>
+  </ul>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    // Select all of the list items
+    var items = $('ul li');
+    // Select the first list item
+    var firstItem = items.first();
+    // Select the anchor element
+    var link = firstItem.find('a');
+    // Add 'href' attribute
+    $(link).attr('href', 'https://www.microsoft.com');
+  </script>
+</body>
+
+</html>

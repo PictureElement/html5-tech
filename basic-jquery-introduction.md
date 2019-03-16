@@ -1,4 +1,4 @@
-# Basic jQuery
+# Introduction to jQuery
 
 jQuery is a popular JavaScript library. The reasons that made jQuery so successful are:
 
@@ -21,11 +21,13 @@ jQuery exists because sometimes manipulating the DOM with Vanilla JavaScript isn
 
 The sample code below shows how we can add new page content using JavaScript and jQuery:
 
-[](_demos/4.html ':include :type=code html')
+*index.html*
 
-This will render as:
+[](_demos/basic-jquery/1.html ':include :type=code html')
 
-<iframe style="width:100%;height:90px;padding: 0 1.4rem;" src="_demos/4.html"></iframe>
+*Live preview*
+
+<iframe style="width:100%;height:90px;padding:0 1.4rem;margin:0;" src="_demos/basic-jquery/1.html"></iframe>
 
 ## Document Object Model
 

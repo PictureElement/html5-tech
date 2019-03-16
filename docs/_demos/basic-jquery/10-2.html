@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+  <div id='family-tree'>
+    <div id='family1'>
+      <h3>Family1</h3>
+      <div id='alex'>
+        <h4>Alex</h4>
+        <div id='jane'>
+          <h5>Jane</h5>
+        </div>
+      </div>
+      <div id='taylor'>
+        <h4>Taylor</h4>
+        <div id='bob'>
+          <h5>Bob</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    // Add '#family2' after '#family1'
+    var content = $("<div id='family2'><h3>Family2</h3></div>");
+    content.insertAfter('#family1');
+
+    // Add '#bruce' as a child of '#family2'
+    $('#family2').append("<div id='bruce'><h4>Bruce</h4></div>");
+
+    // Add '#madison' as a child of '#bruce'
+    $('#bruce').append("<div id='madison'><h5>Madison</h5></div>");
+
+    // Add '#hunter' as a child of '#bruce'
+    $('#bruce').append("<div id='hunter'><h5>Hunter</h5></div>");
+  </script>
+</body>
+
+</html>

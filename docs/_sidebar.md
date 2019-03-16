@@ -20,4 +20,7 @@
 
 - jQuery
 
-- [Basic jQuery](basic-jquery.md)
+  - Basic jQuery
+
+    - [Introduction](basic-jquery-introduction.md)
+    - [DOM Manipulation](basic-jquery-dom-manipulation.md)
