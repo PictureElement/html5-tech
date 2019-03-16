@@ -1,4 +1,4 @@
-![logo](https://pictureelement.github.io/html5tech/images/logo-1x.png)
+![logo](_media/logo.png)
 
 > An ever-growing documentation website about HTML5 and friends.
 
