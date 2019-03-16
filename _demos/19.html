@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Smiley face using arc()
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+        // Specify the color or style to use inside shapes
+        context.fillStyle = "#007f7f";
+
+        // Create a new path
+        context.beginPath();
+        // Head
+        context.arc(100, 100, 75, 0, Math.PI * 2);
+        context.moveTo(150, 100);
+        // Mouth
+        context.arc(100, 100, 50, 0, Math.PI);
+        context.moveTo(140, 80);
+        // Right eye
+        context.arc(130, 80, 10, 0, Math.PI * 2);
+        context.moveTo(80, 80);
+        // Left eye
+        context.arc(70, 80, 10, 0, Math.PI * 2);
+        context.stroke();
+      }
+    </script>
+  </body>
+</html>

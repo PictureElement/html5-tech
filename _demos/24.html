@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2><u>Crisp even-width lines</u></h2>
+    <canvas style="display:block;" id="c1" width="200", height="200" style="border:1px solid #000;">
+      Lines with increasing line widths
+    </canvas>
+    <h2><u>Crisp odd-width lines</u></h2>
+    <canvas style="display:block;" id="c2" width="200", height="200" style="border:1px solid #000;">
+      Lines with increasing line widths
+    </canvas>
+    <h2><u>Crisp lines</u></h2>
+    <canvas style="display:block;" id="c3" width="200", height="200" style="border:1px solid #000;">
+      Lines with increasing line widths
+    </canvas>
+    <script>
+      var canvas1 = document.getElementById('c1');
+      var canvas2 = document.getElementById('c2');
+      var canvas3 = document.getElementById('c3');
+
+      // Check for canvas support
+      if (canvas1.getContext) {
+        // Access the rendering contexts
+        var context1 = canvas1.getContext('2d');
+        var context2 = canvas2.getContext('2d');
+        var context3 = canvas3.getContext('2d');
+
+        // Save states before doing any transformations
+        context1.save();
+        context2.save();
+        context3.save();
+
+        // Draw lines with increasing line widths
+        for (let i = 0; i < 10; i++) {
+
+          // Set the current line thickness
+          context1.lineWidth = i + 1;
+          context2.lineWidth = i + 1;
+          context3.lineWidth = i + 1;
+
+          // Create a new path
+          context1.beginPath();
+          context2.beginPath();
+          context3.beginPath();
+
+          // Canvas 1 (only the even-width lines look crisp)
+          context1.moveTo(i*20+10,10);
+          context1.lineTo(i*20+10,190);
+
+          // Canvas 2 (only the odd-width lines look crisp)
+          context2.moveTo(i*20+10.5,10);
+          context2.lineTo(i*20+10.5,190);
+
+          // Canvas 3 (every line looks crisp)
+          // even-width lines
+          if (context3.lineWidth % 2 === 0) {
+            context3.moveTo(i*20+10,10);
+            context3.lineTo(i*20+10,190);
+          }
+          // odd-width lines
+          else {
+            context3.moveTo(i*20+10.5,10);
+            context3.lineTo(i*20+10.5,190);
+          }
+
+          // Draw
+          context1.stroke();
+          context2.stroke();
+          context3.stroke();
+        }
+      }
+    </script>
+  </body>
+</html>

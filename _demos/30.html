@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        max-width: 200px;
+        border:1px solid #000;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="v" controls loop width="200" height="200" src="../videos/people.mp4">
+      Sorry, your browser doesn't support embedded videos!
+    </video>
+    <canvas id="c">
+      Playing video in canvas.
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      var video = document.getElementById('v');
+
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var ctx = canvas.getContext("2d");
+
+        // The loadedmetadata event is fired when the metadata has been loaded.
+        video.addEventListener("loadedmetadata", function() {
+          canvas.width = this.videoWidth;
+          canvas.height = this.videoHeight;
+        });
+
+        // Draw image onto canvas
+        function draw () {
+          ctx.drawImage(video, 0, 0);
+          // Tell the browser that you wish to perform an animation and request
+          // that the browser calls the specified function to update an
+          // animation before the next repaint.
+          window.requestAnimationFrame(draw)
+        }
+
+        // The play event is fired when playback has begun.
+        video.addEventListener("play", function() {
+          draw();
+        });
+      }
+    </script>
+  </body>
+</html>

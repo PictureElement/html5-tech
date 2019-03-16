@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        overflow: hidden;
+      }
+      p {
+        /* Relative positioning moves an element RELATIVE to its original position */
+        position: relative;
+        border: none;
+        border-radius: .25rem;
+        background: blue;
+        color: white;
+        height: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="area">
+      <p id="box"></p>
+    </div>
+    <script>
+      // Select <p> element
+      var box = document.getElementById("box");
+      // Set the width of the <p> element
+      box.style.width = "10%";
+      // Set the width of the <div> element
+      document.getElementById("area").style.width = "100%";
+      // <p> is just outside the left side of the <div> element
+      var currentPos = -10;
+
+      // Animation loop (recursive)
+      function animationLoop() {
+        box.style.left = currentPos + "%";
+        currentPos++;
+        // <p> is just outside the right side of the <div> element
+        if(currentPos === 100) {
+          currentPos = -10;
+        }
+        window.requestAnimationFrame(animationLoop);
+      }
+
+      animationLoop();
+    </script>
+  </body>
+</html>

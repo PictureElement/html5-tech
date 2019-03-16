@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Rectangles using fillRect() &amp; strokeRect()
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+        // Specify the color or style to use inside shapes
+        context.fillStyle = "#007f7f";
+        // Draw a filled rectangle
+        context.fillRect(0, 0, 200, 200);
+        // Clear the specified rectangular area (left eye)
+        context.clearRect(35, 35, 50, 50);
+        // Draw a rectangular outline (left eye)
+        context.strokeRect(45, 45, 30, 30);
+        // Clear the specified rectangular area (right eye)
+        context.clearRect(115, 35, 50, 50);
+        // Draw a rectangular outline (right eye)
+        context.strokeRect(125, 45, 30, 30);
+        // Clear the specified rectangular area (mouth)
+        context.clearRect(35, 140, 130, 30);
+      }
+    </script>
+  </body>
+</html>

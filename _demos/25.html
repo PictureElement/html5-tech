@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Drawing text
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+
+        // Set text style
+        context.font = '30px sans-serif';
+        // Draw stroke text
+        context.strokeText('Hello World', 10, 30);
+        // Set text style
+        context.font = '30px serif';
+        // Draw fill text
+        context.fillText('Hello World', 10, 60);
+      }
+    </script>
+  </body>
+</html>

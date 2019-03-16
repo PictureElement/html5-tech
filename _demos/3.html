@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Basic JS</title>
+    </head>
+    <body>
+        <h1 id='fullName'></h1>
+        <button type='button' onclick='inName();'>
+            Click to internationalize your name
+        </button>
+        <!-- This script runs when the page loads (jQuery) --> 
+        <script src='/html5tech/js/output.min.js'></script>
+        <!-- This script runs when the page loads -->
+        <script src='js/3.js'></script>
+        <!-- This script runs only when the button is clicked -->
+        <script>
+          function inName() {
+              // Extract and capitalize first character (first name)
+              var char = bio.name.slice(0, 1);
+              char = char.toUpperCase();
+              // Full name (array)
+              var fullName = bio.name.split(' ');
+              // First name to lower case
+              fullName[0] = fullName[0].toLowerCase();
+              // Last name to upper case
+              fullName[1] = fullName[1].toUpperCase();
+              // Format first name accordingly
+              fullName[0] = char + fullName[0].slice(1);
+              // Change value stored in the bio object 
+              bio.name = fullName[0] + ' ' + fullName[1];
+              // jQuerry's replaceWith() method that replaces the content of 
+              // the selected element(s)
+              $('#fullName').replaceWith('<h1>' + bio.name + '</h1>');
+          }
+        </script>
+    </body>
+</html>

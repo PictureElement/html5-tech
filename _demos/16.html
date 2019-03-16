@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <!-- Create a fixed-size drawing surface -->
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Draw images
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+        // Create image
+        var img = new Image();
+        // Set the image source
+        img.src = '../images/400x400.png';
+        // When the resource is loaded
+        img.onload = function () {
+          console.log('Image has been loaded');
+          // Draw images onto canvas
+          context.drawImage(img, 0, 0, canvas.width/2, canvas.height/2);
+          context.drawImage(img, canvas.width/2, 0, canvas.width/2, canvas.height/2);
+          context.drawImage(img, 0, canvas.height/2, canvas.width/2, canvas.height/2);
+          context.drawImage(img, canvas.width/2, canvas.height/2, canvas.width/2, canvas.height/2);
+        }
+      }
+    </script>
+  </body>
+</html>

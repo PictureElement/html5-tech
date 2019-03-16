@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Rectangles using paths
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+        // Specify the color or style to use inside shapes
+        context.fillStyle = "#007f7f";
+
+        // Create a new path
+        context.beginPath();
+        // Path
+        context.moveTo(10, 10);
+        context.lineTo(110, 10);
+        context.lineTo(110, 60);
+        context.lineTo(10, 60);
+        // Create a path from the current point back to the starting point from (10, 60) to (10, 10)
+        context.closePath();
+        // Draw
+        context.stroke();
+
+        // Create a new path
+        context.beginPath();
+        // Path
+        context.moveTo(10, 70);
+        context.lineTo(110, 70);
+        context.lineTo(110, 120);
+        context.lineTo(10, 120);
+        // Create a path from the current point back to the starting point from (10, 120) to (10, 70)
+        context.closePath();
+        // Draw
+        context.fill();
+
+        // Create a new path
+        context.beginPath();
+        // Clockwise arc (default)
+        context.arc(40, 160, 30, 0, Math.PI);
+        // Draw semicircle
+        context.fill();
+        // Anticlockwise arc
+        var anticlockwise = true;
+        context.arc(100, 160, 30, 0, Math.PI, anticlockwise);
+        // Draw semicircle
+        context.stroke();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Basic JQuery</title>
+        <style>
+            .red-border {
+                border: 5px solid red;
+                padding: 10px;
+            }
+
+            .green-border {
+                border: 5px solid green;
+                padding: 10px;
+            }
+
+            .orange-border {
+                border: 5px solid orange;
+            }
+
+            .lime-border {
+                border: 5px solid lime;
+            }
+
+            .blue-bg {
+                background: blue;
+            }
+
+            .yellow-bg {
+                background: yellow;
+            }
+
+            .purple-bg {
+                background: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='example-1'>
+            <strong>Example 1</strong>
+        </div>
+        <br>
+        <div id='example-2'>
+            <strong>Example 2</strong>
+        </div>
+        <br>
+        <div id='example-3' class='yellow-bg'>
+            <strong>Example 3</strong>
+        </div>
+        <br>
+        <div id='example-4'>
+            <strong>Example 4</strong>
+        </div>
+        <br>
+        <div id='example-5.1' class='lime-border'>
+            <strong>Example 5.1</strong>
+        </div>
+        <div id='example-5.2'>
+            <strong>Example 5.2</strong>
+        </div>
+        <script src='/html5tech/js/output.min.js'></script>
+        <script>
+            // Example 1: Add 'red-border' class to div#example-1
+            $('#example-1').addClass('red-border');
+
+            // Example 2: Add 'green-border' & 'blue-bg' classes to
+            // div#example-2
+            function myFunct1() {
+                var cssClass = 'green-border blue-bg';
+                return cssClass;
+            }
+            $('#example-2').addClass(myFunct1);
+
+            // Example 3: Toggle (remove) 'yellow-bg' class from
+            // div#example-3 & add an 'orange-border' class
+            var example3 = $('.yellow-bg');
+            example3.toggleClass('yellow-bg');
+            example3.addClass('orange-border');
+
+            // Example 4: Toggle (add) 'purple-bg' class to div#example-4
+            $('#example-4').toggleClass('purple-bg');
+
+            // Example 5: Toggle (remove) 'lime-border' class from
+            // div#example-5.1 & add it to div#example-5.2
+            var example5_1 = $('.lime-border');
+            example5_1.toggleClass('lime-border');
+            var example5_2 = example5_1.next();
+            example5_2.toggleClass('lime-border');
+        </script>
+    </body>
+</html>

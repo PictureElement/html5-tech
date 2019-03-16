@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Shades of gray
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+
+        // Save state before doing any transformations
+        context.save();
+
+        // Shades of gray
+        var transparencyValue = 0.1;
+        for (let i = 0; i < 10; i++) {
+          context.globalAlpha = transparencyValue;
+          context.fillRect(i*20,0,20,200);
+          transparencyValue += 0.1;
+        }
+      }
+    </script>
+  </body>
+</html>

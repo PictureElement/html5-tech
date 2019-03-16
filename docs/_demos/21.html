@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      Transformations
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+
+        // Save state before doing any transformations
+        context.save();
+        // Specify the color or style to use inside shapes.
+        context.fillStyle = "blue";
+        // Scale (1 horizontal unit = 2px, 1 vertical unit = 4px)
+        context.scale(2, 4);
+        // Draw a filled rectangle: pos(20px,40px), 40px(w)x80px(h)
+        context.fillRect(10,10,20,20);
+
+        // Restore previous state (undo scale, undo fillStyle)
+        context.restore();
+        // Save state before doing any transformations
+        context.save();
+        // Specify the color or style to use for the lines around shapes.
+        context.strokeStyle = "red";
+        // Move: origin(100px,100px)
+        context.translate(100,100);
+        // Draw a rectangular outline: pos(0,0), 20px(w)x20px(h)
+        context.strokeRect(0,0,20,20);
+
+        // Restore previous state (undo translate, undo strokeStyle)
+        context.restore();
+        // Save state before doing any transformations
+        context.save();
+        // Specify the color or style to use inside shapes.
+        context.fillStyle = "green";
+        // Move: origin((150px, 150px), origin is the rotation center
+        context.translate(150,150);
+        // Rotate 45 degrees clockwise
+        context.rotate(Math.PI/4);
+        // Draw a filled rectangle: pos(150px,150px), 30px(w)x30px(h)
+        context.fillRect(0,0,30,30);
+
+        // Restore previous state (undo translate, undo strokeStyle)
+        context.restore();
+        // Save state before doing any transformations
+        context.save();
+      }
+    </script>
+  </body>
+</html>

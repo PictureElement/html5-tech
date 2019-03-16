@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        max-width: 200px;
+        border:1px solid #000;
+        display: block;
+      }
+      input {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id='c'>
+      Pixel manipulation: Grayscaling and Color inversion
+    </canvas>
+    <input id='grayscaleBtn' type='button' value='Grayscale'>
+    <input id='invertBtn' type='button' value='Invert'>
+    <input id='resetBtn' type='button' value='Reset'>
+    <script>
+      var canvas = document.getElementById('c');
+
+      // Check for canvas support
+      if (canvas.getContext) {
+
+        // Initialization
+        function init(image) {
+          // Use the intrinsic size of image in CSS pixels
+          canvas.width = image.naturalWidth;
+          canvas.height = image.naturalHeight;
+          // Draw image onto the canvas
+          ctx.drawImage(image, 0, 0);
+        }
+
+        // Grayscaling
+        var grayscale = function () {
+          // ImageData object
+          var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          // One-dimensional array containing the data in the RGBA order
+          var data = imageData.data;
+          // data represents the Uint8ClampedArray containing the data
+          // in the RGBA order [r0, g0, b0, a0, r1, g1, b1, a1, ..., rn, gn, bn, an]
+          for (let i = 0; i < data.length; i += 4) {
+            // Averaging method: gray = (r + g + b) / 3
+            let gray = (data[i] + data[i+1] + data[i+2]) / 3;
+            // Red channel
+            data[i] = gray;
+            // Green channel
+            data[i+1] = gray;
+            // Blue channel
+            data[i+2] = gray;
+          }
+          // Paint pixel data into the context
+          ctx.putImageData(imageData, 0, 0);
+        }
+
+        // Color inversion
+        var invert = function () {
+          // ImageData object
+          var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          // One-dimensional array containing the data in the RGBA order
+          var data = imageData.data;
+          // data represents the Uint8ClampedArray containing the data
+          // in the RGBA order [r0, g0, b0, a0, r1, g1, b1, a1, ..., rn, gn, bn, an]
+          for (let i = 0; i < data.length; i += 4) {
+            // Red channel
+            data[i] = 255 - data[i];
+            // Green channel
+            data[i+1] = 255 - data[i+1];
+            // Blue channel
+            data[i+2] = 255 - data[i+2];
+          }
+          // Paint pixel data into the context
+          ctx.putImageData(imageData, 0, 0);
+        }
+
+        // Access the rendering context
+        var ctx = canvas.getContext('2d');
+
+        // Create image
+        var img = new Image();
+        img.src = '../images/image-1.jpg';
+        // The callback will be called when the image has finished loading
+        img.onload = function() {
+          // Initalize canvas
+          init(this);
+        };
+
+        // Click events
+        document.getElementById('grayscaleBtn').addEventListener('click', grayscale);
+        document.getElementById('invertBtn').addEventListener('click', invert);
+        document.getElementById('resetBtn').addEventListener('click', function() {
+          // Erase any previously drawn content
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          // Draw image onto the canvas
+          ctx.drawImage(img, 0, 0);
+        });
+      }
+    </script>
+  </body>
+</html>

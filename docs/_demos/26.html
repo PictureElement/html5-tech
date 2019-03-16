@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="260", height="450" style="border:1px solid #000;">
+      Styling text
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+
+        /* TEXT STYLING EXAMPLE */
+
+        // Specify the color to use for the lines around shapes.
+        context.strokeStyle = '#007f7f';
+        // Set text style
+        context.font = 'italic small-caps bold 30px Arial, Helvetica, sans-serif';
+        // Set text alignment
+        context.textAlign = 'center';
+        // Draw stroke text
+        context.strokeText('Lorem ipsum', canvas.width / 2, 30);
+
+        /* TEXT ALIGNMENT EXAMPLE */
+
+        context.strokeStyle = 'red';
+        // Start a new path
+        context.beginPath();
+        // Move the starting point of a new sub-path to the (x, y) coordinates.
+        context.moveTo(canvas.width / 2, 50);
+        // Connect the last point in the sub-path to the x, y coordinates with a straight line.
+        context.lineTo(canvas.width / 2, 180);
+        // Draw the shape by stroking its outline.
+        context.stroke();
+
+        context.font = '20px Arial, Helvetica, sans-serif';
+        var alignments = ['left', 'center', 'right', 'start', 'end'];
+        var startX = canvas.width / 2;
+        var startY = 80;
+        var margin = 20;
+        alignments.forEach(function (alignment) {
+          context.textAlign = alignment;
+          // Draw fill text
+          context.fillText(alignment, startX, startY);
+          startY += margin;
+        });
+
+        /* BASELINE ALIGNMENT EXAMPLE */
+
+        // Default text alignment
+        context.textAlign = 'start';
+
+        var baselines = ['top', 'hanging', 'middle', 'alphabetic', 'ideographic', 'bottom'];
+        startX = 10;
+        startY = 200;
+        margin = 40;
+        baselines.forEach(function (baseline) {
+          // Set baseline alignment
+          context.textBaseline = baseline;
+          context.beginPath();
+          context.moveTo(startX, startY);
+          context.lineTo(canvas.width - startX, startY);
+          context.stroke();
+          context.fillText('Lorem ipsum (' + baseline + ')', startX, startY);
+          startY += margin;
+        });
+
+        /* ANOTHER STYLING EXAMPLE */
+
+        context.font = '30px Impact';
+        context.textAlign = 'center';
+
+        context.strokeStyle = 'black';
+        // Sets the width of lines drawn in the future.
+        context.lineWidth = 3;
+        context.strokeText('LOREM IPSUM', canvas.width / 2, startY);
+
+        context.fillStyle = 'white';
+        context.fillText('LOREM IPSUM', canvas.width / 2, startY);
+      }
+    </script>
+  </body>
+</html>

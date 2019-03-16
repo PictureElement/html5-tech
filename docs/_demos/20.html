@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas id="c" width="200", height="200" style="border:1px solid #000;">
+      save() and restore()
+    </canvas>
+    <script>
+      var canvas = document.getElementById('c');
+      // Check for canvas support
+      if (canvas.getContext) {
+        // Access the rendering context
+        var context = canvas.getContext('2d');
+
+        // Specify the color or style to use inside shapes.
+        context.fillStyle = "blue";
+        // Draw a filled rectangle.
+        context.fillRect(0,0,50,50);
+        // Save state with blue fill
+        context.save();
+
+        // Specify the color or style to use inside shapes.
+        context.fillStyle = "green"
+        // Draw a filled rectangle.
+        context.fillRect(50,50,50,50);
+
+        // Restore to blue fill
+        context.restore();
+        // Draw a filled rectangle.
+        context.fillRect(100,100,50,50);
+      }
+    </script>
+  </body>
+</html>
