@@ -24,3 +24,10 @@
 
     - [Introduction](basic-jquery-introduction.md)
     - [DOM Manipulation](basic-jquery-dom-manipulation.md)
+
+- JavaScript
+
+  - JavaScript And The DOM
+
+    - [Document Object Model](js-and-the-dom-dom.md)
+    - [Creating Content with JavaScript](js-and-the-dom-creating-content-with-js.md)
