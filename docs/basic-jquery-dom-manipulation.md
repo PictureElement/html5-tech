@@ -1,8 +1,12 @@
 # DOM Manipulation
 
-jQuery was created for a single reason: DOM traversal and manipulation. It came out at a time when manipulation of the DOM to enable rich, dynamic web experiences was somewhat new.
+jQuery was created for a single reason: DOM traversal and manipulation. It came 
+out at a time when manipulation of the DOM to enable rich, dynamic web 
+experiences was somewhat new.
 
-It used to be much more popular a few years ago, and now some of the needs of jQuery have been superseded by modern browsers, but this JavaScript library is still used by a lot of people.
+It used to be much more popular a few years ago, and now some of the needs of 
+jQuery have been superseded by modern browsers, but this JavaScript library is 
+still used by a lot of people.
 
 ## Selectors
 
@@ -43,13 +47,21 @@ $('li').css('color', 'blue');
 
 ## DOM Traversal
 
-jQuery provides a variety of methods that allow us to traverse the DOM. Most traversal methods are tree-traversal and that make sense since the DOM is a tree-like representation of the document. With traversal methods we can move up, down or sideways, visiting ancestors, descendants and siblings.
+jQuery provides a variety of methods that allow us to traverse the DOM. Most 
+traversal methods are tree-traversal and that make sense since the DOM is a 
+tree representation of the document. With traversal methods we can move up, down 
+or sideways, visiting ancestors, descendants and siblings.
 
-1. `.parent([selector ])`: Get the parent of each element in the current set of matched elements, optionally filtered by a selector.
-2. `.parents([selector])`: Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.
-3. `.children([selector])`: Get the children of each element in the set of matched elements, optionally filtered by a selector.
-4. `.siblings([selector])`: Get the siblings of each element in the set of matched elements, optionally filtered by a selector.
-5. `.find(selector)`: Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.
+1. `.parent([selector ])`: Get the parent of each element in the current set of 
+matched elements, optionally filtered by a selector.
+2. `.parents([selector])`: Get the ancestors of each element in the current set 
+of matched elements, optionally filtered by a selector.
+3. `.children([selector])`: Get the children of each element in the set of 
+matched elements, optionally filtered by a selector.
+4. `.siblings([selector])`: Get the siblings of each element in the set of 
+matched elements, optionally filtered by a selector.
+5. `.find(selector)`: Get the descendants of each element in the current set of 
+matched elements, filtered by a selector, jQuery object, or element.
 
 ?> Mind that parameters inside [] are optional.
 
@@ -149,10 +161,14 @@ siblings.addClass('yellow');
 
 ## Toggling Classes
 
-1. `.addClass(className)`: Add the specified class(es) to each element in the set of matched elements.
-2. `.addClass(function)`: Add the specified class(es) to each element in the set of matched elements.
-3. `.toggleClass(className)`: Add or remove one or more classes from each element in the set of matched elements.
-4. `.next([selector])`: Get the immediately following sibling of each element in the set of matched elements.
+1. `.addClass(className)`: Add the specified class(es) to each element in the 
+set of matched elements.
+2. `.addClass(function)`: Add the specified class(es) to each element in the set 
+of matched elements.
+3. `.toggleClass(className)`: Add or remove one or more classes from each 
+element in the set of matched elements.
+4. `.next([selector])`: Get the immediately following sibling of each element in 
+the set of matched elements.
 
 ?> Mind that parameters inside [] are optional.
 
@@ -253,10 +269,13 @@ example5_2.toggleClass('lime-border');
 
 ## Changing Attributes
 
-1. `.attr(attributeName)`: Get the value of an attribute for the first element in the set of matched elements.
-2. `.attr(attributeName, value)`: Set one or more attributes for the set of matched elements.
+1. `.attr(attributeName)`: Get the value of an attribute for the first element 
+in the set of matched elements.
+2. `.attr(attributeName, value)`: Set one or more attributes for the set of 
+matched elements.
 3. `.first()`: Reduce the set of matched elements to the first in the set.
-4. `.find(selector)`: Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.
+4. `.find(selector)`: Get the descendants of each element in the current set of 
+matched elements, filtered by a selector, jQuery object, or element.
 
 Consider the following HTML:
 
@@ -293,8 +312,10 @@ $(link).attr('href', 'https://www.microsoft.com');
 
 ## Modifying CSS
 
-1. `.css(propertyName)`: Get the computed style properties for the first element in the set of matched elements.
-2. `.css(propertyName, value)`: Set one or more CSS properties for the set of matched elements by modifying the element's 'style' property.
+1. `.css(propertyName)`: Get the computed style properties for the first element 
+in the set of matched elements.
+2. `.css(propertyName, value)`: Set one or more CSS properties for the set of 
+matched elements by modifying the element's 'style' property.
 
 Consider the following HTML:
 
@@ -322,8 +343,10 @@ heading.css({
 
 ## Pulling HTML/Text
 
-1. `.html()`: Get the HTML contents of the first element in the set of matched elements.
-2. `.text()`: Get the combined text contents of each element in the set of matched elements, including their descendants.
+1. `.html()`: Get the HTML contents of the first element in the set of matched 
+elements.
+2. `.text()`: Get the combined text contents of each element in the set of 
+matched elements, including their descendants.
 
 Consider the following HTML:
 
@@ -370,10 +393,25 @@ Largest car manufacturers (2016)
 
 ## Collecting Values
 
-1. `.text(text)`: Set the content of each element in the set of matched elements to the specified text.
-2. `.change(handler)`: Bind an event handler to the 'change' JavaScript event, or trigger that event on an element. The change event is sent to an element when its value changes. This event is limited to &lt;input>, &lt;select>, and &lt;textarea>. For select boxes, checkboxes, and radio buttons, the event is fired immediately when the user makes a selection with the mouse, but for other element types such as input fields, the event is postpone until the element loses focus.
-3. `on('change', handler)`: Bind an event handler to the 'change' JavaScript event, or trigger that event on an element. The change event is sent to an element when its value changes. This event is limited to &lt;input>, &lt;select>, and &lt;textarea>. For select boxes, checkboxes, and radio buttons, the event is fired immediately when the user makes a selection with the mouse, but for other element types such as input fields, the event is postpone until the element loses focus.
-4. `.val()`: Get the current value of the first element in the set of matched elements. Primarily used to get the values of form elements such as &lt;input>, &lt;select> and &lt;textarea>.
+1. `.text(text)`: Set the content of each element in the set of matched elements 
+to the specified text.
+2. `.change(handler)`: Bind an event handler to the 'change' JavaScript event, 
+or trigger that event on an element. The change event is sent to an element when 
+its value changes. This event is limited to &lt;input>, &lt;select>, and 
+&lt;textarea>. For select boxes, checkboxes, and radio buttons, the event is 
+fired immediately when the user makes a selection with the mouse, but for other 
+element types such as input fields, the event is postpone until the element 
+loses focus.
+3. `on('change', handler)`: Bind an event handler to the 'change' JavaScript 
+event, or trigger that event on an element. The change event is sent to an 
+element when its value changes. This event is limited to &lt;input>, 
+&lt;select>, and &lt;textarea>. For select boxes, checkboxes, and radio buttons, 
+the event is fired immediately when the user makes a selection with the mouse, 
+but for other element types such as input fields, the event is postpone until 
+the element loses focus.
+4. `.val()`: Get the current value of the first element in the set of matched 
+elements. Primarily used to get the values of form elements such as &lt;input>, 
+&lt;select> and &lt;textarea>.
 
 ?> Mind that `.change(handler)` is equivalent to `.on('change', handler)`
 
@@ -409,7 +447,8 @@ $('#input').change(function () {
 ## Removing DOM Elements
 
 1. `.remove([selector])`: Remove the set of matched elements from the DOM.
-2. `.children([selector])`: Get the children of each element in the set of matched elements, optionally filtered by a selector.
+2. `.children([selector])`: Get the children of each element in the set of 
+matched elements, optionally filtered by a selector.
 
 ?> Mind that parameters inside [] are optional.
 
@@ -446,14 +485,22 @@ list.remove();
 
 ## Adding DOM Elements
 
-1. `.append(content, [content])`: Insert content, specified by the parameter, to the end of each element in the set of matched elements.
-2. `.prepend(content, [content])`: Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
-3. `.insertBefore(target)`: Insert every element in the set of matched elements before the target.
-4. `.insertAfter(target)`: Insert every element in the set of matched elements after the target.
-5. `.before(content[,content])`: Insert content, specified by the parameter, before each element in the set of matched elements.
-6. `.after(content[,content])`: Insert content, specified by the parameter, after each element in the set of matched elements.
+1. `.append(content, [content])`: Insert content, specified by the parameter, to 
+the end of each element in the set of matched elements.
+2. `.prepend(content, [content])`: Insert content, specified by the parameter, 
+to the beginning of each element in the set of matched elements.
+3. `.insertBefore(target)`: Insert every element in the set of matched elements 
+before the target.
+4. `.insertAfter(target)`: Insert every element in the set of matched elements 
+after the target.
+5. `.before(content[,content])`: Insert content, specified by the parameter, 
+before each element in the set of matched elements.
+6. `.after(content[,content])`: Insert content, specified by the parameter, 
+after each element in the set of matched elements.
 
-?> The **content** type could be a DOM element, a text node, an array of elements and text nodes, an HTML string, or a jQuery object. Mind that parameters inside [] are optional.
+?> The **content** type could be a DOM element, a text node, an array of 
+elements and text nodes, an HTML string, or a jQuery object. Mind that 
+parameters inside [] are optional.
 
 **Example 1:**
 
