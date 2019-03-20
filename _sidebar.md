@@ -30,4 +30,4 @@
   - JavaScript And The DOM
 
     - [Document Object Model](js-and-the-dom-dom.md)
-    - [Creating Content with JavaScript](js-and-the-dom-creating-content-with-js.md)
+    - [Creating Content With JavaScript](js-and-the-dom-creating-content-with-js.md)
