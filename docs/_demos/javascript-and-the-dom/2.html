@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+</style>
+
+<body>
+  <p>Default action: <a href="https://www.linuxfoundation.org" target="_blank" rel="noopener">Link</a></p>
+  <p>Prevent default action: <a class="prevent-default" href="https://www.linuxfoundation.org" target="_blank" rel="noopener">Link</a></p>   
+  <script>
+    document.querySelector('.prevent-default').addEventListener('click', function (e) {
+      e.preventDefault();
+      alert("Look, ma! We didn't navigate to a new page!");
+    });
+  </script>
+</body>
+
+</html>

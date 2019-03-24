@@ -31,3 +31,4 @@
 
     - [Document Object Model](js-and-the-dom-dom.md)
     - [Creating Content With JavaScript](js-and-the-dom-creating-content-with-js.md)
+    - [Browser Events](js-and-the-dom-browser-events.md)

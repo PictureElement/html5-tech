@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    ul {list-style-type: none; padding-left: 0;};
+  </style>
+</head>
+
+<body>
+  <script>
+    const myList = document.createElement('ul');
+
+    for (let i = 0; i < 5; i++) {
+      const newListElement = document.createElement('li');
+      newListElement.textContent = 'Item: ' + i;
+
+      newListElement.addEventListener('click', function (evt) {
+        alert('A list item was clicked.');
+      });
+
+      myList.appendChild(newListElement);
+    }
+
+    document.body.appendChild(myList);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    html {background: #fff;}
+    body {background: red;height:100px;}
+    p {background:green;}
+    button {background: blue;color:#fff;border: none;padding:10px 20px;}
+  </style>
+</head>
+</style>
+
+<body>
+  <div class="container">
+    <p>
+      <button>Click me</button>
+    </p>
+  </div>
+  <script>
+    // Bubbling phase
+    document.querySelector('body').addEventListener('click', function() {alert('body')});
+    // Capturing phase
+    document.querySelector('p').addEventListener('click', function() {alert('paragraph')}, true);
+    // Bubbling phase
+    document.querySelector('button').addEventListener('click', function() {alert('button')});
+  </script>
+</body>
+
+</html>
