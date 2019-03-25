@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    span {color: blue; cursor: pointer}
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>Google was founded in 1998 by <span>Larry Page</span> and <span>Sergey Brin</span> while they were Ph.D. students at Stanford University in California.</p>
+    <p>Microsoft was founded by <span>Bill Gates</span> and <span>Paul Allen</span> on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.</p> 
+    <p>Facebook was founded by <span>Mark Zuckerberg</span>, along with fellow Harvard College students and roommates <span>Eduardo Saverin</span>, <span>Andrew McCollum</span>, <span>Dustin Moskovitz</span> and <span>Chris Hughes</span>.</p>
+  </div>
+  <script>
+    const myDiv = document.querySelector('div');
+
+    function respondToTheClick(e) {
+      if (e.target.nodeName === 'SPAN') { // ← verifies target is desired element
+        alert('A span item was clicked: ' + e.target.textContent);
+      }
+    }
+
+    myDiv.addEventListener('click', respondToTheClick);
+  </script>
+</body>
+
+</html>

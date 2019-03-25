@@ -13,16 +13,19 @@
   <script>
     const myList = document.createElement('ul');
 
+    function respondToTheClick(e) {
+      alert('A list item was clicked: ' + e.target.textContent);
+    }
+
     for (let i = 0; i < 5; i++) {
       const newListElement = document.createElement('li');
-      newListElement.textContent = 'Item: ' + i;
 
-      newListElement.addEventListener('click', function (evt) {
-        alert('A list item was clicked.');
-      });
+      newListElement.textContent = 'Item: ' + i;
 
       myList.appendChild(newListElement);
     }
+
+    myList.addEventListener('click', respondToTheClick);
 
     document.body.appendChild(myList);
   </script>

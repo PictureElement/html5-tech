@@ -390,3 +390,145 @@ the individual paragraphs. There's no way for us to target a specific paragraph
 element. So how do we combine this efficient code with the access to the 
 individual paragraph items that we did before? We use a process called 
 **event delegation**.
+
+### Event Delegation
+
+Event delegation is a mechanism of responding to ui-events via a single common 
+parent rather than each child, through the magic of event "bubbling".
+
+**Example 1:**
+
+Consider the following HTML:
+
+```html
+<html>
+  <body>
+  </body>
+</html>
+```
+
+```javascript
+const myList = document.createElement('ul');
+
+function respondToTheClick(e) {
+  alert('A list item was clicked: ' + e.target.textContent);
+}
+
+for (let i = 0; i < 5; i++) {
+  const newListElement = document.createElement('li');
+
+  newListElement.textContent = 'Item: ' + i;
+
+  myList.appendChild(newListElement);
+}
+
+myList.addEventListener('click', respondToTheClick);
+
+document.body.appendChild(myList);
+```
+
+<iframe style="width:100%;height:150px;padding:0 1.4rem;margin:0;" src="_demos/javascript-and-the-dom/4.html"></iframe>
+
+![diagram-7](_media/diagram-7.svg)
+
+In the code we used above, we used *event delegation* to add the event listener 
+directly to the `<ul>` element instead of having multiple event listeners for 
+each item.
+
+Let's say that you click on a list element. Here's roughly the process that 
+happens:
+
+1. a list element is clicked
+2. the event goes through the capturing phase
+3. it reaches the target
+4. it switches to the bubbling phase and starts going up the DOM tree when it 
+hits the `<ul>` element, it runs the listener function
+5. inside the listener function, `event.target` is the element that was clicked
+
+<hr>
+
+**Example 2:**
+
+Let's say we want to listen to the `<div>` for a click on a `<span>`:
+
+```html
+<div>
+  <p>Google was founded in 1998 by <span>Larry Page</span> and <span>Sergey Brin</span> while they were Ph.D. students at Stanford University in California.</p>
+  <p>Microsoft was founded by <span>Bill Gates</span> and <span>Paul Allen</span> on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.</p> 
+  <p>Facebook was founded by <span>Mark Zuckerberg</span>, along with fellow Harvard College students and roommates <span>Eduardo Saverin</span>, <span>Andrew McCollum</span>, <span>Dustin Moskovitz</span> and <span>Chris Hughes</span>.</p>
+</div>
+```
+
+```javascript
+const myDiv = document.querySelector('div');
+
+function respondToTheClick(e) {
+  if (e.target.nodeName === 'SPAN') { // ← verifies target is desired element
+    alert('A span item was clicked: ' + e.target.textContent);
+  }
+}
+
+myDiv.addEventListener('click', respondToTheClick);
+```
+
+!> The `.nodeName` property will return a capital string, not a lowercase one.
+
+<iframe style="width:100%;height:200px;padding:0 1.4rem;margin:0;" src="_demos/javascript-and-the-dom/5.html"></iframe>
+
+## DOM Ready
+
+Consider the following HTML fragment:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script>
+    document.querySelector('footer').style.backgroundColor = 'purple';
+  </script>
+  ...
+```
+
+!> The problem is with the `.querySelector()` method. When it runs, there's no 
+`<footer>` element to select from the constructed document object model yet! So 
+instead of returning a DOM element, it will return `null`. This causes will 
+cause an error.
+
+One solution is to move the script down to the bottom of the page just 
+before the closing `</body>` tag. Then by the time the JavaScript code is run, 
+all DOM elements will already exist.
+
+An alternative solution is to use browser events. When the document object model 
+has been fully loaded, the browser will fire an event. This event is called the 
+`DOMContentLoaded` event, and we can listen for it:
+
+```javascript
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('The DOM has been fully loaded!'); 
+});
+```
+
+Now we can fix the previous code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('footer').style.backgroundColor = 'purple';
+    });
+  </script>
+  ...
+```
+
+?>Usually is better to move our code to the bottom of the HTML file just 
+before the closing `</body>` tag.
+
+?>JavaScript code in the `<head>` will run before JavaScript code in the `<body>`, 
+so if you do have JavaScript code that needs to run as soon as possible, then 
+you could put that code in the `<head>` and wrap it in a `DOMContentLoaded` 
+event listener. This way it will run as early as possible, but not too early 
+that the DOM isn't ready for it.

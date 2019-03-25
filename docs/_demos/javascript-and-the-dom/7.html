@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+  <script>
+    const startingTime = performance.now();
+
+    const container = document.createElement('div');
+
+    for (let i = 0; i < 10000; i++) {
+      const newElement = document.createElement('p');
+
+      newElement.innerText = 'This is paragraph number ' + i;
+
+      container.appendChild(newElement);
+    }
+
+    document.body.appendChild(container);
+    
+    const endingTime = performance.now();
+    console.log('This code took ' + (endingTime - startingTime) + ' milliseconds.');
+  </script>
+</body>
+
+</html>
