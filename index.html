@@ -32,5 +32,11 @@
   <script src="//unpkg.com/docsify-copy-code"></script>
   <!-- Pagination plugin for docsify -->
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- Register service worker -->
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
 </body>
 </html>
